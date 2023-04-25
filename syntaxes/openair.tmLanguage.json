@@ -3,27 +3,140 @@
 	"name": "OpenAir",
 	"patterns": [
 		{
-			"include": "#keywords"
+			"include": "#comments"
 		},
 		{
-			"include": "#strings"
+			"include": "#class"
+		},
+		{
+			"include": "#airspace_name"
+		},
+		{
+			"include": "#airspace_ceiling"
+		},
+		{
+			"include": "#airspace_floor"
+		},
+		{
+			"include": "#airspace_frequency"
+		},
+		{
+			"include": "#variable"
+		},
+		{
+			"include": "#arc"
 		}
 	],
 	"repository": {
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.openair",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
-		},
-		"strings": {
-			"name": "string.quoted.double.openair",
-			"begin": "\"",
-			"end": "\"",
+		"comments": {
 			"patterns": [
 				{
-					"name": "constant.character.escape.openair",
-					"match": "\\\\."
+					"begin": "\\*",
+					"captures": {
+						"0": {
+							"name": "punctuation.definition.comment.json"
+						}
+					},
+					"end": "\\n",
+					"name": "comment.line"
+				}
+			]
+		},
+		"class": {
+			"patterns": [
+				{
+					"begin": "(AC )\\w+",
+					"captures": {
+						"0": {
+							"name": "variable.language"
+						}
+					},
+					"end": "\\n",
+					"name": "entity.name.class"
+				}
+			]
+		},
+		"airspace_name": {
+			"patterns": [
+				{
+					"begin": "AN .*",
+					"captures": {
+						"0": {
+							"name": "entity.name.type"
+						}
+					},
+					"end": "\\n",
+					"name": "constant.numeric"
+				}
+			]
+		},
+		"airspace_ceiling": {
+			"patterns": [
+				{
+					"begin": "AH .*",
+					"captures": {
+						"0": {
+							"name": "entity.name.function"
+						}
+					},
+					"end": "\\n",
+					"name": "constant.numeric"
+				}
+			]
+		},
+		"airspace_frequency": {
+			"patterns": [
+				{
+					"begin": "AF .*",
+					"captures": {
+						"0": {
+							"name": "entity.name.tag"
+						}
+					},
+					"end": "\\n",
+					"name": "entity.name.tag"
+				}
+			]
+		},
+		"airspace_floor": {
+			"patterns": [
+				{
+					"begin": "AL .*",
+					"captures": {
+						"0": {
+							"name": "entity.name.method"
+						}
+					},
+					"end": "\\n",
+					"name": "constant.numeric"
+				}
+			]
+		},
+		"variable": {
+			"patterns": [
+				{
+					"begin": "V .*",
+					"captures": {
+						"0": {
+							"name": "support.function"
+						}
+					},
+					"end": "\\n",
+					"name": "constant.character"
+				}
+			]
+		},
+		"arc": {
+			"patterns": [
+				{
+					"begin": "DB .*",
+					"captures": {
+						"0": {
+							"name": "string"
+						}
+					},
+					"end": "\\n",
+					"name": "constant.character"
 				}
 			]
 		}
