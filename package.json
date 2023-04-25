@@ -3,7 +3,9 @@
   "displayName": "openair_syntax_highlighting",
   "description": "Syntax Highlighting for OpenAir airsapce format",
   "repository": "https://github.com/llauner/openair-syntax-highlighting",
-  "version": "0.0.1",
+  "publisher": "llcloudservices",
+  "icon": "images/extension_logo.png",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.77.0"
   },
